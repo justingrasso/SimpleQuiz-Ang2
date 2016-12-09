@@ -1,0 +1,111 @@
+@import "../common-scss/common.scss.scss";
+html,body,ul {padding:0;margin:0;}
+li {list-style-type: none;}
+h1,.question-text,button{font-family: $font-family;}
+
+h1{
+    color: #fff;
+        font-size: 3rem;
+    font-weight: 400;
+    margin-top:0;
+}
+section{height: 300px; border-bottom: 1px solid $brand-blueLight;position: relative;}
+.quiz__wrapper{
+  max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0px 5px 5px #060605;
+    padding: 3em;
+    box-sizing: border-box;
+    background-color:$brand-blueDark;
+}
+.question__text{
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-family: $font-family;
+}
+.question-wrong{
+    background-color: #fff;
+    border-top: 5px solid #dc2318;
+    justify-content: center;
+    font-family: $font-family;
+    position: absolute;
+    font-size: 11px;
+    bottom: 0;
+    margin-left: -100px;
+    left: 100%;
+    width: 100px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.question-wrong:after{
+  content:"INCORRECT";
+  color:$brand-blueDark;
+  font-weight: 700;
+}
+.question-correct:after{
+  content:"CORRECT";
+  color:$brand-blueDark;
+  font-weight: 700;
+}
+.question-correct{
+     background-color: #ffffff;
+    border-top: 5px solid #85d609;
+   font-family: $font-family;
+    justify-content: center;
+    position: absolute;
+    font-size: 11px;
+    bottom: 0;
+    margin-left: -100px;
+    left: 100%;
+    width: 100px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+}
+
+///Footer
+footer{
+  display: flex;
+ justify-content: space-between;
+  margin-top: 2em;
+}
+///Buttons
+.button{
+  border:none;
+  background-color:transparent;
+  box-shadow: none;
+  text-shadow: 0 -1px 0 #6f6f6f;
+  text-transform: uppercase;
+}
+.button__nav{
+  font-size:1.1rem;
+      display: flex;
+    align-items: center;
+    color:#fff;
+}
+.button__arrow{
+background-color: $brand-blueLight;
+    color: #fff;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    border-radius: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+.button__arrow--left{
+  transform: rotate(180deg);margin-right: 5px;
+  &:before{content:"\00279d";
+  }
+}
+.button__arrow--right{
+  margin-left: 5px;
+  &:before{content:"\00279d";
+  }
+}
+.button--hidden{
+  visibility: hidden;
+}

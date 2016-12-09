@@ -1,0 +1,58 @@
+@import "../common-scss/common.scss.scss";
+section{
+  margin: 1em 0 3em;
+  & div{
+    margin-bottom: .5rem;
+    & label {
+      font-family:$font-family;
+      color:#fff;
+      font-size: 1.1rem;
+    }
+  }
+  }
+input[type=checkbox] {
+    position: relative;
+    border: none;
+    display: inline-block;
+    line-height: 1em;
+    margin: 0;
+    padding: 0;
+    width: 1em;
+    height: 1em;
+    vertical-align: top;
+    margin: 0 5px 0 0;
+    background: #fff;
+    -webkit-appearance: none;
+    box-sizing: content-box;
+    font-size: 15px;
+    border: 2px solid $brand-blueLight;
+}
+
+input[type=checkbox]:checked:after {
+position: absolute;
+    content: '\2713';
+left: 0rem;
+    top: 0rem;
+    font-size: 1.3em;
+    height: .7rem;
+    width: .7rem;
+    color: $brand-blueDark;
+    box-sizing: border-box;
+}
+button{
+    border: 2px solid #6ab727;
+    background: #6ab727;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    color: #ffffff;
+    box-shadow: 0 2px 3px #6ab727;
+    border-radius: 5px;
+    font-family:$font-family;
+    text-shadow: 0 -1px 0 #6f6f6f;
+    text-transform: uppercase;
+    margin-bottom: 2em;
+    &:disabled{
+      opacity:.7;
+    }
+  }
+

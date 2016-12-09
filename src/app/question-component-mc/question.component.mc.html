@@ -1,0 +1,7 @@
+<section>
+<div *ngFor="let qo of qOptions;let i = index">
+    <input type="radio" name={{questionId}} [(ngModel)]="radioValue" id={{i}} [value]=qo.option/>
+    <label [innerHTML]="qo.option" for={{i}}></label>
+</div>
+</section>
+<button [disabled]="!radioValue" (click)="onSubmitAnswer($event)">Submit Answer</button>

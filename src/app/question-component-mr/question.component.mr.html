@@ -1,0 +1,7 @@
+<section>
+<div *ngFor="let qr of qResponses; let i = index">
+<input type="checkbox" name={{questionId}} id={{i}} (change)="toggleCheckbox($event)" [value]=qr.option/>
+<label [innerHTML]="qr.option" for={{i}}></label>
+  </div>
+  </section>
+  <button [disabled]="isDisabled" (click)="onSubmitAnswer($event)">Submit Answer</button>

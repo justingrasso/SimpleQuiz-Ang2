@@ -1,0 +1,6 @@
+<section>
+<label for={{questionId}}>Enter #</label>
+<input type="number" [(ngModel)]="inputValue" id={{questionId}}/>
+</section>
+<button [disabled]="!inputValue" (click)="onSubmitAnswer($event)">Submit Answer</button>
+

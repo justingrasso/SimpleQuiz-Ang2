@@ -1,0 +1,22 @@
+<div class="quiz__wrapper">
+<header>
+<h1>{{quizTitle}}</h1>
+</header>
+<section>
+<ul *ngIf="question && question.length">
+  <li>
+    <div class="question__text">{{currentQuestion.questionText}}</div>
+    <qo-response *ngIf="currentQuestion.questionType == 3" [questionId]="currentQuestion.id" [qResponses]="currentQuestion.questionOptions" (providedAnswer)="providedAnswer($event)"></qo-response>
+    <qo-input *ngIf="currentQuestion.questionType == 2" [questionId]="currentQuestion.id" (providedAnswer)="providedAnswer($event)"></qo-input>
+    <qo-options *ngIf="currentQuestion.questionType == 1" [questionId]="currentQuestion.id" [qOptions]="currentQuestion.questionOptions" (providedAnswer)="providedAnswer($event)"></qo-options>
+    </li>
+</ul>
+<!--<aside [ngClass]="{'question-wrong question-wrong-in':!isCorrect && isAnswered,'question-correct question-correct-in':isCorrect && isAnswered}"></aside>-->
+<aside [@ciIndicator] *ngIf="isAnswered" [ngClass]="{'question-wrong':!isCorrect && isAnswered,'question-correct':isCorrect && isAnswered}"></aside>
+</section>
+<footer>
+<button class="button button__nav" (click)="backQuestion()" [ngClass]="{'button--hidden':currentIndex === 0}"><span class="button__arrow button__arrow--left"></span>BACK</button>
+<button class="button button__nav" (click)="nextQuestion()" [ngClass]="{'button--hidden':currentIndex === question.length - 1}">NEXT<span class="button__arrow button__arrow--right"></span></button>
+</footer>
+</div>
+
