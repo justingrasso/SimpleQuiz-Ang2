@@ -1,4 +1,5 @@
 import { Component,OnInit,trigger, state, animate, transition, style} from '@angular/core';
+import {QuestionService} from '../questionService';
 import {IQuestion} from '../interfaces/IQuestion';
 
 
@@ -18,37 +19,24 @@ import {IQuestion} from '../interfaces/IQuestion';
     ])
   ]
 })
-export class AppComponent {
-  question: IQuestion[] = [
-     {
-	id: 1,
-  questionType:1,
-  questionText: "How many sides does a square have?",
-	questionAnswer: "four",
-	questionOptions: [{option:"three"},{option:"four"},{option:"one"},{option:"five"}]
-}, {
-	id: 2,
-  questionType:3,
-	questionText: "How many sides does a circle have?",
-	questionAnswer: ["0","zero"],
-	questionOptions: [{option:"0"},{option:"three"},{option:"two"},{option:"zero"}]
-}, {
-	id: 3,
-  questionType:2,
-	questionText: "How many sides does a triangle have?",
-	questionAnswer: 3,
-	questionOptions: []
-}
-];
+export class AppComponent implements OnInit{
+
+  question: IQuestion[];
   quizTitle = "Quiz!";
   currentIndex:number = 0;
-  currentQuestion = this.question[this.currentIndex];
-  questionCount:number = this.question.length;
+  currentQuestion:any;
+  questionCount:number;
   isCorrect:boolean = true;
   isAnswered:boolean = false;
-
-
-  backQuestion = () => {
+  errorMessage: string;
+constructor(private _questionService:QuestionService){}
+  ngOnInit():void{
+    this._questionService.getQuiz().subscribe(response => this.question = response,
+            err => console.error(err),
+    () => (this.currentQuestion = this.question[this.currentIndex],this.questionCount = this.question.length));
+    this.question = new Array<IQuestion>();
+  }
+ backQuestion = () => {
     this.currentIndex--;
     this.currentQuestion = this.question[this.currentIndex];
     this.isAnswered = false;
@@ -80,4 +68,5 @@ export class AppComponent {
     }
     this.isAnswered = true;
   }
+
 }

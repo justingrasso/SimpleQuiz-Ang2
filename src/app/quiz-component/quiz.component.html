@@ -6,12 +6,11 @@
 <ul *ngIf="question && question.length">
   <li>
     <div class="question__text">{{currentQuestion.questionText}}</div>
-    <qo-response *ngIf="currentQuestion.questionType == 3" [questionId]="currentQuestion.id" [qResponses]="currentQuestion.questionOptions" (providedAnswer)="providedAnswer($event)"></qo-response>
+  <qo-response *ngIf="currentQuestion.questionType == 3" [questionId]="currentQuestion.id" [qResponses]="currentQuestion.questionOptions" (providedAnswer)="providedAnswer($event)"></qo-response>
     <qo-input *ngIf="currentQuestion.questionType == 2" [questionId]="currentQuestion.id" (providedAnswer)="providedAnswer($event)"></qo-input>
     <qo-options *ngIf="currentQuestion.questionType == 1" [questionId]="currentQuestion.id" [qOptions]="currentQuestion.questionOptions" (providedAnswer)="providedAnswer($event)"></qo-options>
     </li>
 </ul>
-<!--<aside [ngClass]="{'question-wrong question-wrong-in':!isCorrect && isAnswered,'question-correct question-correct-in':isCorrect && isAnswered}"></aside>-->
 <aside [@ciIndicator] *ngIf="isAnswered" [ngClass]="{'question-wrong':!isCorrect && isAnswered,'question-correct':isCorrect && isAnswered}"></aside>
 </section>
 <footer>

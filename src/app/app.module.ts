@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './quiz-component/quiz.component';
+import { QuestionService } from './questionService';
 import {QuestionOptions} from './question-component-mc/question.component.mc';
 import {QuestionInput} from './question-component-input/question.component.input';
 import {QuestionResponse} from './question-component-mr/question.component.mr';
@@ -20,7 +21,7 @@ import {QuestionResponse} from './question-component-mr/question.component.mr';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [QuestionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

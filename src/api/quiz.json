@@ -1,1 +1,21 @@
-{"_comment":"json found in app/quiz-component/quiz.component.ts"}
+[
+     {
+	"id": 1,
+  "questionType":1,
+  "questionText": "How many sides does a square have?",
+	"questionAnswer":"four",
+	"questionOptions": [{"option":"three"},{"option":"four"},{"option":"one"},{"option":"five"}]
+}, {
+	"id": 2,
+  "questionType":3,
+	"questionText": "How many sides does a circle have?",
+	"questionAnswer": ["0","zero"],
+	"questionOptions": [{"option":"0"},{"option":"three"},{"option":"two"},{"option":"zero"}]
+}, {
+	"id": 3,
+  "questionType":2,
+	"questionText": "How many sides does a triangle have?",
+	"questionAnswer": 3,
+	"questionOptions": []
+}
+]
